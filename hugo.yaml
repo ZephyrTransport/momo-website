@@ -20,20 +20,20 @@ markup:
 
 menu:
   main:
-    - name: about momo
+    - name: about
       pageRef: /about
       weight: 1
     - name: momo 2025
       pageRef: /2025/
       weight: 2
-    # - name: News
-    #   pageRef: /news
-    #   weight: 2
+    - name: '<span style="border-radius: 5px;color:white;font-weight:bold;background-color: #20BEC7;padding: 2px 6px">momo 2027<span>'
+      pageRef: /2027
+      weight: 3
     - name: zephyr↗
       url: 'https://zephyrtransport.org'
-      weight: 3
-    - name: Search
       weight: 4
+    - name: Search
+      weight: 5
       params:
         type: search
 
