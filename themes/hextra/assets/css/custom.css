@@ -252,6 +252,24 @@ a:hover {
   padding: 5rem;
 }
 
+.banner-image-wrapper {
+  overflow: hidden;
+}
+
+img.banner-image-hero {
+  max-width: 96rem;
+  max-height: 45rem;
+  margin: 0 auto;
+  opacity: 0;
+  transform: scale(2);
+  transition: opacity 1.5s ease-in, transform 1.5s ease-in;
+  object-fit: contain;
+}
+img.banner-image-hero.loaded {
+  transform: scale(1);
+  opacity: 1;
+}
+
 .momo-hero img {
   margin: 0 auto;
   filter: brightness(0) invert(0.805) sepia(0.21) saturate(55%) hue-rotate(50deg);
@@ -504,6 +522,26 @@ footer {
   margin: 0 auto;
 }
 
+.momo-2027-page {
+  font-size: 1.4rem;
+  max-width: 50rem;
+  margin: 0 auto;
+
+  p {
+    line-height: 2.3rem;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    margin-top: 4rem;
+    color: #C26F6F;
+    font-size: 3.5rem;
+    text-align: center;
+    border-bottom: none;
+  }
+
+}
+
 /* Hide desktop sidebar */
 @media (min-width: 767px) {
   .hextra-sidebar-container {
@@ -666,5 +704,11 @@ footer {
       margin-bottom: 2rem;
     }
   }
+
+  .momo-2027-page {
+    h2 {
+      font-size: 2rem;
+    }
+ }
 }
 

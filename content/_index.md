@@ -11,6 +11,16 @@ excludeSearch: true
 
 <br/>
 <br/>
+<br/>
+
+# coming up next:
+
+<a href="./tomomo">
+  <img src="images/Tomomo_light.png">
+</a>
+
+<br/>
+<br/>
 
 # new and noteworthy
 
