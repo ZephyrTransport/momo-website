@@ -1,0 +1,61 @@
+{{- /*
+Icon tab strip for the momo 2027 page. Each child {{< sectiontab >}} becomes one tab
+plus one panel. Every panel is rendered into the HTML so the page still reads without
+JavaScript and stays searchable; js/core/section-tabs.js hides the inactive ones and
+keeps the URL hash in sync.
+
+@example
+  {{< sectiontabs >}}
+    {{< sectiontab title="Overview" icon="1-Overview.png" >}}text{{< /sectiontab >}}
+  {{< /sectiontabs >}}
+*/ -}}
+
+{{- /* Unused, but required to populate the store from the child shortcodes. */ -}}
+{{- .Inner -}}
+
+{{- $sections := .Store.Get "sections" | default slice -}}
+{{- if eq (len $sections) 0 -}}
+  {{- errorf "sectiontabs must contain at least one sectiontab (%s)" .Position -}}
+{{- end -}}
+
+{{- $page := .Page -}}
+<div class="momo-tabs" data-momo-tabs>
+  <nav class="momo-tabstrip" role="tablist" aria-label="{{ .Get "label" | default "Conference sections" }}">
+    {{- range $i, $s := $sections -}}
+      {{- $img := "" -}}
+      {{- with $s.icon -}}
+        {{- with resources.Get (printf "images/2027/%s" .) -}}
+          {{- $img = .Process "resize 96x png" -}}
+        {{- else -}}
+          {{- errorf "sectiontab %q: icon not found at assets/images/2027/%s" $s.title . -}}
+        {{- end -}}
+      {{- end -}}
+      <a
+        class="momo-tab{{ if eq $i 0 }} is-active{{ end }}"
+        id="tab-{{ $s.id }}"
+        href="#{{ $s.id }}"
+        role="tab"
+        aria-controls="{{ $s.id }}"
+        aria-selected="{{ if eq $i 0 }}true{{ else }}false{{ end }}"
+        tabindex="{{ if eq $i 0 }}0{{ else }}-1{{ end }}"
+      >
+        {{- with $img -}}
+          <img class="momo-tab-icon" src="{{ .RelPermalink }}" alt="" width="48" height="48" loading="lazy">
+        {{- end -}}
+        <span class="momo-tab-label">{{ $s.title }}</span>
+      </a>
+    {{- end -}}
+  </nav>
+
+  {{- range $i, $s := $sections -}}
+    <section
+      class="momo-panel"
+      id="{{ $s.id }}"
+      role="tabpanel"
+      aria-labelledby="tab-{{ $s.id }}"
+      {{ if ne $i 0 }}hidden{{ end }}
+    >
+      {{- $s.content | $page.RenderString (dict "display" "block") -}}
+    </section>
+  {{- end -}}
+</div>

@@ -542,6 +542,71 @@ footer {
 
 }
 
+.momo-2027-intro {
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Icon tab strip -- see layouts/shortcodes/sectiontabs.html */
+.momo-tabstrip {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  border-bottom: 2px solid #f2b8bf;
+  margin-top: 2rem;
+  /* Scroll the strip sideways on narrow screens. overflow-y must be pinned:
+     a scroll value on one axis makes the other compute to `auto`, which
+     otherwise shows a stray vertical scrollbar. */
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.momo-tab {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem 0.5rem 0.5rem;
+  border-bottom: 4px solid transparent;
+  text-align: center;
+  color: var(--momo-x-grey-3) !important; /* beat the global `a { color: ... !important }` */
+}
+
+.momo-tab:hover {
+  color: var(--momo-x-red-1) !important;
+}
+
+.momo-tab.is-active {
+  color: var(--momo-x-red-1) !important;
+  border-bottom-color: var(--momo-x-red-1);
+  cursor: default;
+}
+
+.momo-tab-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.momo-tab-label {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.momo-panel {
+  margin-top: 2.5rem;
+}
+
+/* Panels only collapse once section-tabs.js takes over; without JS all six
+   sections stay visible and the tab links simply jump to them. */
+.momo-tabs-js .momo-panel[hidden] {
+  display: none;
+}
+
 /* Hide desktop sidebar */
 @media (min-width: 767px) {
   .hextra-sidebar-container {
@@ -630,6 +695,20 @@ footer {
 
   .conf-section-picker {
     border-bottom: none;
+  }
+
+  .momo-tabstrip {
+    justify-content: flex-start;
+    gap: 0.25rem;
+  }
+
+  .momo-tab-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .momo-tab-label {
+    font-size: 0.8rem;
   }
 
   .btn-conf-button1 {

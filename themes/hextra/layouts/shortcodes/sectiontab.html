@@ -1,0 +1,22 @@
+{{- /*
+One section of a {{< sectiontabs >}} group. Stashes itself on the parent's store;
+the parent does all the rendering.
+
+@param {string} title The tab label, also the source of the anchor if no id is given.
+@param {string} icon Filename under assets/images/2027/.
+@param {string} id Optional explicit anchor, e.g. "get-involved".
+
+@example {{< sectiontab title="Overview" icon="1-Overview.png" >}}...{{< /sectiontab >}}
+*/ -}}
+
+{{- $title := .Get "title" | default (printf "Section %d" .Ordinal) -}}
+{{- $id := .Get "id" | default (anchorize $title) -}}
+
+{{- $sections := .Parent.Store.Get "sections" | default slice -}}
+{{- .Parent.Store.Set "sections" ($sections | append (dict
+    "id" $id
+    "title" $title
+    "icon" (.Get "icon")
+    "content" .InnerDeindent
+  ))
+-}}
