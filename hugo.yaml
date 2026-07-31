@@ -1,6 +1,7 @@
 # Hugo configuration file
 title: Modeling Mobility Conference
 baseURL: https://ModelingMobility.org
+#baseURL: https://billyc.github.io/momo
 theme: hextra
 
 # import hextra as module
