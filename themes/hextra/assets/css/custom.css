@@ -523,12 +523,12 @@ footer {
 }
 
 .momo-2027-page {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   max-width: 50rem;
   margin: 0 auto;
 
   p {
-    line-height: 2.3rem;
+    line-height: 2rem;
     margin-bottom: 2rem;
   }
 
@@ -545,6 +545,7 @@ footer {
 .momo-2027-intro {
   text-align: center;
   font-weight: 700;
+  padding-top: 2rem;
 }
 
 /* Icon tab strip -- see layouts/shortcodes/sectiontabs.html */
@@ -614,6 +615,124 @@ footer {
   opacity: 0.5 !important;
 }
 
+.momo-submissions {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.momo-submission {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--momo-x-red-1);
+  color: white;
+  padding: 1rem 2.5rem 1rem 2.5rem;
+
+  .sub-header {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    color: #ffffffcc;
+    margin-bottom: 1rem;
+  }
+
+  img {
+    height: 52px;
+    width:fit-content;
+    /* height: auto; */
+    margin: 0 0 0.25rem 0;
+  }
+
+  .sub-type {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.45;
+    color: #ffffffee;
+    margin: 0;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid #ffffff59;
+    margin: 1.5rem 0 0.25rem 0;
+  }
+
+  .sub-choose {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    color: #ffffffcc;
+    margin-bottom: 1rem;
+  }
+
+  .submission-list-item {
+    list-style: none;
+    margin: 0 0 1rem 0;
+    padding: 0 0 0 0.5rem;
+
+    li {
+      position: relative;
+      padding-left: 2.25rem;
+      margin: 0 0 0.85rem 0;
+      font-size: 1rem;
+      line-height: 1.35;
+      color: #ffffffee;
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.05em;
+      width: 1.35rem;
+      height: 1.25rem;
+      background-image: url("/2027/CheckBox.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  button {
+    align-self: center;
+    margin-top: auto;
+    background-color: white;
+    color: var(--momo-x-red-1);
+    font-size: 1rem;
+    font-weight: 700;
+    border: 0;
+    border-radius: 2px;
+    padding: 0.85rem 1.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  button:hover {
+    background-color: var(--momo-x-grey-3);
+    color: white;
+  }
+
+  .sub-foot {
+    margin-top: 0.9rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #ffffffcc;
+  }
+
+}
+
+a.email-link {
+    color: var(--momo-x-red-1) !important;
+}
+
 /* Hide desktop sidebar */
 @media (min-width: 767px) {
   .hextra-sidebar-container {
@@ -634,6 +753,10 @@ footer {
   .rainbowlogo { height: 225px; }
 
   .front-page-col {
+    flex-direction: column;
+  }
+
+  .momo-submissions {
     flex-direction: column;
   }
 }
@@ -796,5 +919,6 @@ footer {
       font-size: 2rem;
     }
  }
+
 }
 
