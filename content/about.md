@@ -9,7 +9,7 @@ The Modeling Mobility Conference continues the legacy of previous notable transp
 
 The MoMo conference is organized by an ALL-volunteer group of transportation professionals from various sectors, including the public sector, private consulting, vendors, and academia.
 
-Because a group of volunteers cannot sign contracts, book conference spaces and hotel blocks, or put up the funds to support a website and abstract submission site, the [Zephyr Foundation](https://zephyrfoundation.org/), a 501(c)3 non-profit, acts as the sponsoring organization.
+Because a group of volunteers cannot sign contracts, book conference spaces and hotel blocks, or put up the funds to support a website and abstract submission site, the [Zephyr Foundation](https://zephyrtransport.org), a 501(c)3 non-profit, acts as the sponsoring organization.
 
 ## Past Conferences: 2025
 
